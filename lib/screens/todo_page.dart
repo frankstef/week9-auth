@@ -98,22 +98,22 @@ class _TodoPageState extends State<TodoPage> {
                   context.read<TodoListProvider>().deleteTodo();
 
                   ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('${todo.title} dismissed')));
+                      SnackBar(content: Text('${todo.fName} dismissed')));
                 },
                 background: Container(
                   color: Colors.red,
                   child: const Icon(Icons.delete),
                 ),
                 child: ListTile(
-                  title: Text(todo.title),
-                  leading: Checkbox(
-                    value: todo.completed,
-                    onChanged: (bool? value) {
-                      context
-                          .read<TodoListProvider>()
-                          .toggleStatus(index, value!);
-                    },
-                  ),
+                  title: Text(todo.fName),
+                  // leading: Checkbox(
+                  //   value: todo.completed,
+                  //   onChanged: (bool? value) {
+                  //     context
+                  //         .read<TodoListProvider>()
+                  //         .toggleStatus(index, value!);
+                  //   },
+                  // ),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [

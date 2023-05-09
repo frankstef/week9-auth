@@ -5,8 +5,8 @@ class FirebaseTodoAPI {
 
   Future<String> addTodo(Map<String, dynamic> todo) async {
     try {
-      final docRef = await db.collection("todos").add(todo);
-      await db.collection("todos").doc(docRef.id).update({'id': docRef.id});
+      final docRef = await db.collection("entries").add(todo);
+      await db.collection("entries").doc(docRef.id).update({'id': docRef.id});
 
       return "Successfully added todo!";
     } on FirebaseException catch (e) {
@@ -15,12 +15,12 @@ class FirebaseTodoAPI {
   }
 
   Stream<QuerySnapshot> getAllTodos() {
-    return db.collection("todos").snapshots();
+    return db.collection("entries").snapshots();
   }
 
   Future<String> deleteTodo(String? id) async {
     try {
-      await db.collection("todos").doc(id).delete();
+      await db.collection("entries").doc(id).delete();
 
       return "Successfully deleted todo!";
     } on FirebaseException catch (e) {
